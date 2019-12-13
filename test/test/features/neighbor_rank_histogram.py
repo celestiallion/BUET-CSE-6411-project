@@ -11,7 +11,7 @@ class TestNeighborRankHistogram(unittest.TestCase):
     def test_get_neighbor_rank_histogram(self):
         fasta_file_path = '/home/adnan/CSE 6411 Materials/Dataset/FastaFiles1/aMSX7lvrZeCBwE9kUnDf.fasta'
 
-        neighbor_rank_histogram_vector = self.neighbor_rank_histogram.get_neighbor_rank_histogram(fasta_file_path)
+        neighbor_rank_histogram_vector = self.neighbor_rank_histogram.get_neighbor_rank_histogram_vector(fasta_file_path)
 
         pprint(neighbor_rank_histogram_vector)
         self.assertIsNotNone(neighbor_rank_histogram_vector)
