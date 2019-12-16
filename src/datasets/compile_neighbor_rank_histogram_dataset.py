@@ -9,6 +9,8 @@ from random import sample as random_sample
 from project_configs import DATASET_ROOT, TEST_DATASET_ROOT
 from src.features.neighbor_rank_histogram import NeighborRankHistogram
 
+from multiprocessing import Process
+
 
 class CompileNeighborRankHistogram:
     def __init__(self, dataset_root_path=DATASET_ROOT, K=3, bases='ACGT', right_neighbor_count=3, left_neighbor_count=3):
@@ -77,17 +79,49 @@ class CompileNeighborRankHistogram:
 
 
 def main(args):
-    compile_neighbor_rank_histogram = CompileNeighborRankHistogram(args.dataset_root_path, args.K, args.bases, args.right_neighbor_count, args.left_neighbor_count)
-    compile_neighbor_rank_histogram.compile_entire_dataset(args.write_path)
+    compile_neighbor_rank_histogram_1 = CompileNeighborRankHistogram(args.dataset_root_path,
+                                                                     args.K,
+                                                                     args.bases,
+                                                                     args.right_neighbor_count,
+                                                                     args.left_neighbor_count)
+
+    compile_neighbor_rank_histogram_2 = CompileNeighborRankHistogram(args.dataset_root_path,
+                                                                     args.K,
+                                                                     args.bases,
+                                                                     args.right_neighbor_count,
+                                                                     args.left_neighbor_count)
+
+    compile_neighbor_rank_histogram_3 = CompileNeighborRankHistogram(args.dataset_root_path,
+                                                                     args.K,
+                                                                     args.bases,
+                                                                     args.right_neighbor_count,
+                                                                     args.left_neighbor_count)
+
+    proc_1 = Process(target=compile_neighbor_rank_histogram_1.compile_entire_dataset,
+                     args=('/home/adnan/PycharmProjects/BUET-CSE-6411-project/data/neighbor_rank_histogram_dataset_imbalanced_2.h5', ['FastaFiles2']))
+    proc_2 = Process(target=compile_neighbor_rank_histogram_2.compile_entire_dataset,
+                     args=(
+                         '/home/adnan/PycharmProjects/BUET-CSE-6411-project/data/neighbor_rank_histogram_dataset_imbalanced_3.h5', ['FastaFiles3']))
+    proc_3 = Process(target=compile_neighbor_rank_histogram_3.compile_entire_dataset,
+                     args=(
+                         '/home/adnan/PycharmProjects/BUET-CSE-6411-project/data/neighbor_rank_histogram_dataset_imbalanced_1456789.h5', ['FastaFiles1', 'FastaFiles4', 'FastaFiles5', 'FastaFiles6', 'FastaFiles7', 'FastaFiles8', 'FastaFiles9']))
+
+    proc_1.start()
+    proc_2.start()
+    proc_3.start()
+
+    proc_1.join()
+    proc_2.join()
+    proc_3.join()
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset_root_path', type=str, default=TEST_DATASET_ROOT)
+    parser.add_argument('--dataset_root_path', type=str, default=DATASET_ROOT)
     parser.add_argument('--K', type=int, default=3)
     parser.add_argument('--bases', type=str, default='ACGT')
-    parser.add_argument('--right_neighbor_count', type=int, default=3)
-    parser.add_argument('--left_neighbor_count', type=int, default=3)
+    parser.add_argument('--right_neighbor_count', type=int, default=5)
+    parser.add_argument('--left_neighbor_count', type=int, default=5)
     parser.add_argument('--write_path', type=str, default='/home/adnan/PycharmProjects/BUET-CSE-6411-project/data/test_neighbor_rank_histogram_dataset_imbalanced.h5')
     parser_args = parser.parse_args()
 
