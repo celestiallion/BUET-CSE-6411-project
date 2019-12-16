@@ -1,5 +1,7 @@
 import os
 import argparse
+from math import floor
+
 import h5py
 import numpy as np
 from random import sample as random_sample
@@ -13,13 +15,30 @@ class CompileNeighborRankHistogram:
         self.dataset_root_path = dataset_root_path
         self.neighbor_rank_histogram = NeighborRankHistogram(dataset_root_path, K, bases, right_neighbor_count, left_neighbor_count)
 
-    def compile_entire_dataset(self, write_path) -> None:
+    def compile_entire_dataset(self, write_path, subsets=None, subset_fractions=None) -> None:
+        """
+        Writes the entire dataset in the destination defined in the write_path.
+        :param write_path: Absolute path to the writing destination.
+        :param subsets: Children directories to be included in the data compilation.
+        :param subset_fractions:
+        :return: None
+        """
         X, y = [], []
-        for dataset_dir in os.listdir(self.dataset_root_path):
-            label = int(dataset_dir[-1])
-            vectors, labels = self.compile_dataset(dataset_dir, label)
-            X.extend(vectors)
-            y.extend(labels)
+
+        dataset_dirs = os.listdir(self.dataset_root_path)
+        if subsets is None:
+            subsets = [dataset_dir for dataset_dir in dataset_dirs]
+        if subset_fractions is None:
+            subset_fractions = [1.] * len(dataset_dirs)
+
+        for subset_fraction, dataset_dir in zip(subset_fractions, dataset_dirs):
+            if dataset_dir in subsets:
+                label = int(dataset_dir[-1])
+                end_index = floor(subset_fraction*len(os.listdir(os.path.join(self.dataset_root_path, dataset_dir))))
+                dataset_dir = dataset_dir[:end_index]
+                vectors, labels = self.compile_dataset(dataset_dir, label)
+                X.extend(vectors)
+                y.extend(labels)
         X, y = zip(*random_sample(list(zip(X, y)), len(X)))
 
         hf = h5py.File(write_path, 'w')
