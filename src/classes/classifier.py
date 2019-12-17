@@ -1,9 +1,6 @@
 import os
 import argparse
 import h5py
-
-from sklearn import naive_bayes
-from sklearn import tree
 from sklearn import ensemble
 
 
@@ -15,10 +12,7 @@ def main(args):
     X_train, X_test = X[:split_point], X[split_point:]
     y_train, y_test = y[:split_point], y[split_point:]
 
-    clf_nb = naive_bayes.GaussianNB()
-    clf_et = ensemble.ExtraTreesClassifier(n_estimators=5)
-    clf_rf = ensemble.RandomForestClassifier(n_estimators=5)
-    clf = ensemble.VotingClassifier(estimators=[('nb', clf_nb), ('et', clf_et), ('rf', clf_rf)], voting='soft')
+    clf = ensemble.RandomForestClassifier(n_estimators=5)
     clf.fit(X_train, y_train)
     print(clf.score(X_test, y_test))
 
