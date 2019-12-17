@@ -1,3 +1,6 @@
 .idea
 /data/test_dataset/
 /data/test_neighbor_rank_histogram_dataset_imbalanced.h5
+/data/neighbor_rank_histogram_dataset_imbalanced_2.h5
+/data/neighbor_rank_histogram_dataset_imbalanced_3.h5
+/data/neighbor_rank_histogram_dataset_imbalanced_1456789.h5
