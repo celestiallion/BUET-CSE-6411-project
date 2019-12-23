@@ -7,6 +7,7 @@ from sklearn import ensemble
 from sklearn import tree
 
 from joblib import dump
+from sklearn.metrics import matthews_corrcoef
 
 
 def main(args):
@@ -22,19 +23,22 @@ def main(args):
     test_acc = clf.score(X_test, y_test)
     print(test_acc)
 
-    dump(clf, '/home/adnan/PycharmProjects/BUET-CSE-6411-project/data/models/random_forest_classifier_{}.joblib'.format(test_acc))
+    y_pred = clf.predict(X_test)
+    print(matthews_corrcoef(y_test, y_pred))
 
-    for count, estimator_ in enumerate(clf.estimators_):
-        dot_data = tree.export_graphviz(estimator_, out_file=None)
-        graph = graphviz.Source(dot_data)
-        graph.render('estimator_{}'.format(count))
-        print(count)
+    # dump(clf, '/home/adnan/PycharmProjects/BUET-CSE-6411-project/data/models/random_forest_classifier_{}.joblib'.format(test_acc))
+    #
+    # for count, estimator_ in enumerate(clf.estimators_):
+    #     dot_data = tree.export_graphviz(estimator_, out_file=None)
+    #     graph = graphviz.Source(dot_data)
+    #     graph.render('estimator_{}'.format(count))
+    #     print(count)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_root', type=str, default='/home/adnan/Datasets/')
-    parser.add_argument('--data_file', type=str, default='neighbor_rank_histogram_dataset_oversampled_window_5.h5')
+    parser.add_argument('--data_file', type=str, default='neighbor_rank_histogram_dataset_oversampled_window_3.h5')
     parser_args = parser.parse_args()
 
     main(parser_args)

@@ -6,7 +6,7 @@ from sklearn.metrics import homogeneity_completeness_v_measure
 
 def main(args):
     hf = h5py.File(args.data_root, 'r')
-    X, y = hf['X'][:2000], hf['y'][:2000]
+    X, y = hf['X'][:1000], hf['y'][:1000]
 
     labels_pred = AffinityPropagation(damping=0.75).fit_predict(X)
     print(homogeneity_completeness_v_measure(labels_true=y, labels_pred=labels_pred))
