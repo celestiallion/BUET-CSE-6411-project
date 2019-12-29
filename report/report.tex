@@ -4,6 +4,7 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{program}
 \begin{document}
 \title{Interpretable Clustering and Classification of an Imbalanced Dataset of DNA Sequences}
 \author{Shekh Ahammed Adnan Bashir \\ Department of Computer Science and Engineering \\ Bangladesh University of Engineering and Technology \\ \url{1018052026@grad.cse.buet.ac.bd}}
@@ -39,12 +40,54 @@ Better the features better the classification accuracy is. Works done so far on 
 As we already discussed, clustering of DNA sequences is done to study the similarities among the DNA sequences through the lens of a predefined similarity measure. Plenty of works, such as DNACLUST \cite{11}, d2 cluster \cite{12}, CD-HIT \cite{13}, UCLUST \cite{14} have already been done to cluster DNA sequences and they are interpretable. However, seldom of them used adhoc clustering algorithms rather than the ones which are widely known and their inner workings are understood in depth. MeShClust \cite{15} addressed the issue of the sensitivity of clusterer output due to predefined algorithm paramaters. It repurposes the popular Mean Shift algorithm \cite{16} for the DNA sequence clustering. It is a nonparametric feature space analysis technique and seeks the maxima of a density function. The space spanned by DNA sequences can be considered as feature space. The distribution has a density function in that space and modes are the cluster in the input space. However, considering the maxima of the density function as in Mean Shift algorithm makes it very difficult to work with highly imbalanced training dataset- that is, if the number of samples from different classes varies largely.
 \section{Methodology}
 \subsection{Sequence Embedding}
+\subsubsection{Popular techniques}
 Embedding is the process of mapping some signal from one domain to another. It is done for the convenience of postprocessing. Sequence embedding maps an entire sequence to another domain. Sequence embedding eases the modeling the sequence for further tasks. Sequence modeling is predicting the distribution of the smaller units of the sequence. It also can be used to extract features of the sequences. Feature extraction falls under the umbrella of feature learning. Feature extraction is done through discovering the patterns among the smaller units in the sequence. Feature extraction routines can be learning procedures or static procedures. Therefore, feature extraction can be done using static algorithms those rely on domain specific knowledge or hypotheses regarding the sequence or can be done using neural networks or shallow learning algorithms.\\
 \par 
 In the field of Natural Language Processing, word embedding, which is a sequence embedding technique, refers to a set of techniques for language modeling and feature learning. In NLP, word embedding is done on words or phrases to map them to real valued vectors. This real-valued vectors are used for further tasks- such as classification or clustering. There are severalp opular word embedding techniques including word2vec \cite{17}, GloVe \cite{18}, fastText \cite{19} \cite{20}, etc. Each of the routines transforms word sequences such as sentences, paragraphs, etc. into real valued vectors for feasible classification, clustering, etc.\\
 \par 
-word2vec reduces the number of dimensions using neural networks to learn the embedding. It produces the sequence embedding in two exclusive methods. In one method, called continuous bag of words, the feature learning model is trained to predict a word from the context or surrounding words of it. In another method, called skip-gram, the context words are predicted from a given word through assigning some probability score to a one hot vector of the vocabulary under consideration. GloVe uses a static method to produce the embedding. 
+word2vec reduces the number of dimensions using neural networks to learn the embedding. It produces the sequence embedding in two exclusive methods. In one method, called continuous bag of words, the feature learning model is trained to predict a word from the context or surrounding words of it. In another method, called skip-gram, the context words are predicted from a given word through assigning some probability score to a one hot vector of the vocabulary under consideration. GloVe uses a static method to produce the embedding. GloVe model is trained on aggregated global word-word co-occurrence statistics from a corpus. Representations obtained from GloVe demonstrate interesting linear substructures of the word vector space. fastText learns a representation for each character n-gram (a number of neighboring characters around a character in a word) instead of directly learning a vector representation for a word (as with word2vec). Each word is represented as a bag of character n-grams, so the overall word embedding is a sum of these character n-grams.
+\subsubsection{Our approach}
+We extend two sequence embedding techniques to the domain of biological sequences- word2vec and GloVe. However, rather directly using them, we modify them for using with k-mers. As k-mers we pick 3-mers, that is the codons. We did not pick the value of $k$ experimentally. We picked a value of $k$ that corresponds to a already known and studied biological structure.\\
+\par
+We first split the sequence into nonoverlapping subsequence of length $k$. Then we construct a \textit{weighted} cooccurence vector out of that. To construct the vector we first define a number of neighbors on the right and the left side of a given k-mer and initialize and a matrix of $0$s of dimension $4^k \times 4^k$ with $4$ being the number of DNA bases and $k$ being the $k$ value of the k-mer we consider. Therefore, the rows and the columns of the matrix corresponds all possible k-mers. That is, an item $C_{i,j}$ is the weight of association between k-mer $i$ and k-mer $j$ in a given sequence. We call this matrix cooccurence matrix.\\
+\par
+We take maximum that number of left and right neighbor. For example, for a sequence of length $100 * k$ (k-mer sequence of length $100$) and left and right neighbor count of $3$, the first k-mer in the sequence we only have the right neighbor (k-mers in the $2^{nd}$, $3^{rd}$, and $4^{th}$ positions), the last k-mer has only left neighbors (k-mers in the $97^{th}$, $98^{th}$, and $99^{th}$ positions), and the $10^{th}$ k-mer has k-mers in $7^{th}$, $8^{th}$, and $9^{th}$ position as the left neighbors and k-mers in the $11^{th}$, $12^{th}$, and $13^{th}$ positions in the sequence as the right neighbors. Now we add $\frac{1}{3}$ to the weight between the k-mer at the $10^{th}$ position and the k-mer at the $7^{th}$ position and the k-mer at the $10^{th}$ position and the k-mer at the $13^{th}$ position. That is, we do $\mathbf{C}_{10, 7} = \mathbf{C}_{10, 7} + \frac{1}{3}$ and $\mathbf{C}_{10, 13} = \mathbf{C}_{10, 13} + \frac{1}{3}$. We also do $\mathbf{C}_{10, 8} = \mathbf{C}_{10, 8} + \frac{2}{3}$ and $\mathbf{C}_{10, 12} = \mathbf{C}_{10, 12} + \frac{2}{3}$ and finally, $\mathbf{C}_{10, 9} = \mathbf{C}_{10, 9} + 1$ and $\mathbf{C}_{10, 11} = \mathbf{C}_{10, 11} + 1$. Finally, we flatten the matrix to obtain the cooccurence vector, that is, $\vec{C} = \mathbf{C}_{1,1}, \ldots, \mathbf{C}_{1, N}, \mathbf{C}_{2, 1}, \ldots, \mathbf{C}_{2, N}, \ldots, \mathbf{C}_{N-1, N},\mathbf{C}_{N, 1}, \ldots, \mathbf{C}_{N, N}$. Later, we divide the vector with the largest element in it in order to normalize it. This is how we get feature vector of constant size. The significance of this vector can be thoght of to express cooccurence intensity between the k-mers.
+\subsection{Visualization through dimension reduction algorithms}
+Many datasets can be represented as a matrix, such that each row represents a set of attributes (or features or dimensions). Attributes describe a particular instance of something. Larger the number of attributes (columns) exponentially large the space of unique possible rows. Large number of data dimension causes difficulties in data sampling and pattern recognition. Reducing data into fewer dimensions often makes the analysis of algorithms more efficient, and can help machine learning algorithms make more accurate predictions.\\
+\par
+We want to have our clusters as nonoverlapping as possible. Visualization is important to understand how good our embedding routine is. We first visualize the clusters through dimension reduction algorithms. We pick three algorithms for that:
+\begin{itemize}
+\item Isomap
+\item Locally-Linear Embedding (LLE)
+\item T-distributed Stochastic Neighbor Embedding (t-SNE)
+\end{itemize}
+\begin{figure*}
+\centering
+\includegraphics[width=0.6\linewidth]{../data/visualization/Isomap.png}
+\caption{Isomap on the embeddings obtained from our embedding algorithm.}
+\label{fig:isomap}
+\end{figure*}
+In Isomap first neighbors of each data point are found. Then a neighborhood graph is constructed with each point is connected to other if it is a $K$ nearest neighbor and edge length equal to Euclidean distance. Then in that neighborhood graph the shortest path between the nodes are computed. Finally, a lower-dimensional embedding is computed using multidimensional scaling. We notice that in the Isomap plot \autoref{fig:isomap} of our features many classes are largely overlapped.\\
+\par
+\begin{figure*}
+\centering
+\includegraphics[width=0.6\linewidth]{../data/visualization/LLE.png}
+\caption{Locally-Linear Enbedding on the embeddings obtained from our embedding algorithm.}
+\label{fig:lle}
+\end{figure*}
+Locally-Linear Enbedding leverages the sparsity of the data matrix. First, LLE finds a set of the nearest neighbors of each point. Then it computes a set of weights for each point that best describes the point as a linear combination of its neighbors. Finally, an eigenvector-based optimization is done to find the low-dimensional embedding of points, such that each point is still described with the same linear combination of its neighbors. LLE does not have a mechanism to work with data points with nonuniform density. It performs poor in those cases. This is observed in our LLE plot \autoref{fig:lle}.\\
+\par
+\begin{figure*}
+\centering
+\includegraphics[width=0.6\linewidth]{../data/visualization/T-SNE.png}
+\caption{T-distributed Stochastic Neighbor Embedding on the embeddings obtained from our embedding algorithm.}
+\label{fig:tsne}
+\end{figure*}
+t-SNE models each high-dimensional data point by a two- or three-dimensional point in such a way that similar objects are modeled by nearby points and dissimilar objects are modeled by distant points with high probability. First, a probability distribution over pairs of high-dimensional objects is constructed. Second, a similar probability distribution is defined over the points in the low-dimensional map, and then t-SNE minimizes the Kullback–Leibler divergence between the two distributions with respect to the locations of the points in the map. Reducing dimensionality with t-SNE we are able to see the clusters better upon plotting \autoref{fig:tsne}. However, feeding this reduced dimensioned data to the classifiers does not yield better classification.\\
+\par
+This is error is due to the unsupervised nature of the dimension reduction algorithms. The classification boundary in all problems cannot be properly defined by the well-studied similarity measure(s) alone. Therefore, dimension reduction in an unsupervised fashion does not always work. This is the reason we did not reduce the data dimension for supervised training.
 \subsection{Sequence Clustering}
+
 \subsection{Sequence Classification}
 \section{Interpretation}
 %

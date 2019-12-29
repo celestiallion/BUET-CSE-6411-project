@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.18)  27 DEC 2019 01:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.18)  29 DEC 2019 08:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -314,23 +314,89 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip44
 )
-(./report.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/program/program.sty
+\@gtempa=\dimen139
+\@gtempa=\dimen140
+\@gtempa=\dimen141
+\@gtempa=\dimen142
+\@gtempa=\dimen143
+\@gtempa=\dimen144
+\@gtempa=\dimen145
+\@gtempa=\dimen146
+\@gtempa=\dimen147
+\@gtempa=\dimen148
+\@gtempa=\dimen149
+\@gtempa=\dimen150
+\@gtempa=\dimen151
+\@gtempa=\dimen152
+\@gtempa=\dimen153
+\@gtempa=\dimen154
+\@gtempa=\dimen155
+\@gtempa=\dimen156
+\@gtempa=\dimen157
+\@gtempa=\dimen158
+\@gtempa=\dimen159
+\@gtempa=\dimen160
+\@gtempa=\dimen161
+\@gtempa=\dimen162
+\@gtempa=\dimen163
+\@gtempa=\dimen164
+\@gtempa=\dimen165
+\@gtempa=\dimen166
+\@gtempa=\dimen167
+\@gtempa=\dimen168
+\@gtempa=\dimen169
+\@gtempa=\dimen170
+\@gtempa=\dimen171
+\@gtempa=\dimen172
+\@gtempa=\dimen173
+\@gtempa=\dimen174
+\@gtempa=\dimen175
+\@gtempa=\dimen176
+\@gtempa=\dimen177
+\@gtempa=\dimen178
+\@gtempa=\dimen179
+\@gtempa=\dimen180
+\@gtempa=\dimen181
+\@gtempa=\dimen182
+\@gtempa=\dimen183
+\@gtempa=\dimen184
+\@gtempa=\dimen185
+\@gtempa=\dimen186
+\@gtempa=\dimen187
+\@gtempa=\dimen188
+\c@programline=\count106
+\old@nxttabmar=\count107
+\symeulerletters=\mathgroup4
+\powersetbox=\box28
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 839.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14> on input line 839.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9.79996> on input line 839.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 839.
+LaTeX Font Info:    Try loading font information for U+eur on input line 839.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueur.fd
+File: ueur.fd 2013/01/14 v3.01 Euler Roman
+)) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
 
 -- Lines per column: 58 (exact).
 Package caption Info: Begin \AtBeginDocument code.
@@ -338,16 +404,16 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count106
-\scratchdimen=\dimen139
-\scratchbox=\box28
-\nofMPsegments=\count107
-\nofMParguments=\count108
+\scratchcounter=\count108
+\scratchdimen=\dimen189
+\scratchbox=\box29
+\nofMPsegments=\count109
+\nofMParguments=\count110
 \everyMPshowfont=\toks16
-\MPscratchCnt=\count109
-\MPscratchDim=\dimen140
-\MPnumerator=\count110
-\makeMPintoPDFobject=\count111
+\MPscratchCnt=\count111
+\MPscratchDim=\dimen190
+\MPnumerator=\count112
+\makeMPintoPDFobject=\count113
 \everyMPtoPDFconversion=\toks17
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -364,8 +430,8 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 7.
+\AtBeginShipoutBox=\box30
+Package hyperref Info: Link coloring OFF on input line 8.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -373,53 +439,51 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count112
+\c@section@level=\count114
 )
-LaTeX Info: Redefining \ref on input line 7.
-LaTeX Info: Redefining \pageref on input line 7.
-LaTeX Info: Redefining \nameref on input line 7.
+LaTeX Info: Redefining \ref on input line 8.
+LaTeX Info: Redefining \pageref on input line 8.
+LaTeX Info: Redefining \nameref on input line 8.
 
 (./report.out) (./report.out)
 \@outlinefile=\write3
 \openout3 = `report.out'.
 
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 12.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11> on input line 12.
+(Font)              <11> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.69997> on input line 12.
+(Font)              <7.69997> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.5> on input line 12.
+(Font)              <5.5> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 14.
+(Font)              <9> on input line 15.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 14.
+(Font)              <6> on input line 15.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 14.
+(Font)              <5> on input line 15.
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--19
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--21
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--23
-
- []
-
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 24.
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--25
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--27
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
 
  []
 
@@ -427,29 +491,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--27
 
 
 ]
-Underfull \hbox (badness 1394) in paragraph at lines 37--38
+Underfull \hbox (badness 1394) in paragraph at lines 38--39
 \OT1/ptm/m/n/10 em-ploy pop-u-lar clas-si-fi-ca-tion al-go-rithms on those hand
 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
 
 
-Underfull \hbox (badness 2050) in paragraph at lines 42--43
-\OT1/ptm/m/n/10 of post-pro-cess-ing. Se-quence em-bed-ding maps an en-tire
+Underfull \hbox (badness 2073) in paragraph at lines 44--45
+ \OT1/ptm/m/it/10 1) Pop-u-lar tech-niques: [][][] \OT1/ptm/m/n/10 Em-bed-ding 
+is the pro-cess of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
-
- []
-
-
-Underfull \hbox (badness 3746) in paragraph at lines 44--45
-[]\OT1/ptm/m/n/10 In the field of Nat-u-ral Lan-guage Pro-cess-ing, word
+Underfull \hbox (badness 2088) in paragraph at lines 44--45
+\OT1/ptm/m/n/10 maps an en-tire se-quence to an-other do-main. Se-quence
  []
 
 
@@ -458,62 +518,150 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--45
  []
 
 
-Underfull \vbox (badness 7576) has occurred while \output is active []
+Underfull \hbox (badness 3746) in paragraph at lines 46--47
+[]\OT1/ptm/m/n/10 In the field of Nat-u-ral Lan-guage Pro-cess-ing, word
+ []
 
- [2]
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no “ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no “ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no “ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no “ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no “ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no “ in font ptmr7t!
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 281.
 
-[3
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 281.
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+ []
+
+
+Overfull \hbox (13.41171pt too wide) in paragraph at lines 54--55
+\OT1/cmr/bx/n/10 C[]\OML/cmm/m/it/10 ; [] ; \OT1/cmr/bx/n/10 C[]\OML/cmm/m/it/1
+0 ; \OT1/cmr/bx/n/10 C[]\OML/cmm/m/it/10 ; [] ; \OT1/cmr/bx/n/10 C[]\OML/cmm/m/
+it/10 ; [] ; \OT1/cmr/bx/n/10 C[]\OML/cmm/m/it/10 ; \OT1/cmr/bx/n/10 C[]\OML/cm
+m/m/it/10 ; [] ; \OT1/cmr/bx/n/10 C[]$\OT1/ptm/m/n/10 .
+ []
+
+
+Underfull \hbox (badness 1565) in paragraph at lines 56--57
+[]\OT1/ptm/m/n/10 Many datasets can be rep-re-sented as a ma-trix, such
+ []
+
+
+Underfull \hbox (badness 1584) in paragraph at lines 56--57
+\OT1/ptm/m/n/10 or di-men-sions). At-tributes de-scribe a par-tic-u-lar in-stan
+ce
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
+
+ []
+
+<../data/visualization/Isomap.png, id=110, 462.528pt x 315.8199pt>
+File: ../data/visualization/Isomap.png Graphic file (type png)
+
+<use ../data/visualization/Isomap.png>
+Package pdftex.def Info: ../data/visualization/Isomap.png used on input line 66
+.
+(pdftex.def)             Requested size: 309.60315pt x 211.41028pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
+
+ []
+
+<../data/visualization/LLE.png, id=113, 462.528pt x 315.8199pt>
+File: ../data/visualization/LLE.png Graphic file (type png)
+
+<use ../data/visualization/LLE.png>
+Package pdftex.def Info: ../data/visualization/LLE.png used on input line 74.
+(pdftex.def)             Requested size: 309.60315pt x 211.41028pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
+
+ []
+
+<../data/visualization/T-SNE.png, id=115, 462.528pt x 315.8199pt>
+File: ../data/visualization/T-SNE.png Graphic file (type png)
+
+<use ../data/visualization/T-SNE.png>
+Package pdftex.def Info: ../data/visualization/T-SNE.png used on input line 82.
+
+(pdftex.def)             Requested size: 309.60315pt x 211.41028pt.
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no “ in font ptmr7t!
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+
+ []
+
+[3]
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no “ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no “ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no “ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no “ in font ptmr7t!
+
+Underfull \vbox (badness 1796) has occurred while \output is active []
+
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no “ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no “ in font ptmr7t!
+
+Underfull \vbox (badness 1796) has occurred while \output is active []
+
+ [4 <../data/visualization/Isomap.png> <../data/visualization/LLE.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 324.
+ [5
+
+ <../data/visualization/T-SNE.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 324.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 281.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 281.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 324.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 324.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 7803259B2EF4567FB8906002F0853A51;444.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 281.
+(rerunfilecheck)             Checksum: A5903B29B6F4216B56474C7823F78490;695.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 324.
  ) 
 Here is how much of TeX's memory you used:
- 7493 strings out of 494910
- 117616 string characters out of 6179835
- 210549 words of memory out of 5000000
- 10712 multiletter control sequences out of 15000+600000
- 38872 words of font info for 76 fonts, out of 8000000 for 9000
+ 7902 strings out of 494910
+ 121595 string characters out of 6179835
+ 215659 words of memory out of 5000000
+ 11092 multiletter control sequences out of 15000+600000
+ 44049 words of font info for 93 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 36i,6n,38p,2435b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,6n,39p,2435b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf
--dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (3 pages, 115810 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/times/utmri8a.pfb>
+Output written on report.pdf (5 pages, 284441 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
- 126 compressed objects within 2 object streams
- 32 named destinations out of 1000 (max. 500000)
- 65 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 193 PDF objects out of 1000 (max. 8388607)
+ 163 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
+ 104 words of extra memory for PDF output out of 10000 (max. 10000000)
 
