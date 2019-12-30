@@ -1,11 +1,12 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Previous Works}{}% 2
-\BOOKMARK [1][-]{section.3}{Methodology}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{Sequence Embedding}{section.3}% 4
-\BOOKMARK [3][-]{subsubsection.3.1.1}{Popular techniques}{subsection.3.1}% 5
-\BOOKMARK [3][-]{subsubsection.3.1.2}{Our approach}{subsection.3.1}% 6
-\BOOKMARK [2][-]{subsection.3.2}{Visualization through dimension reduction algorithms}{section.3}% 7
-\BOOKMARK [2][-]{subsection.3.3}{Sequence Clustering}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.4}{Sequence Classification}{section.3}% 9
-\BOOKMARK [1][-]{section.4}{Interpretation}{}% 10
-\BOOKMARK [1][-]{section*.4}{References}{}% 11
+\BOOKMARK [1][-]{section.3}{Dataset Description}{}% 3
+\BOOKMARK [1][-]{section.4}{Methodology}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Sequence Embedding}{section.4}% 5
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Popular techniques}{subsection.4.1}% 6
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Our approach}{subsection.4.1}% 7
+\BOOKMARK [2][-]{subsection.4.2}{Visualization through dimension reduction algorithms}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.3}{Sequence Clustering}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.4}{Sequence Classification}{section.4}% 10
+\BOOKMARK [1][-]{section.5}{Interpretation}{}% 11
+\BOOKMARK [1][-]{section*.5}{References}{}% 12
