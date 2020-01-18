@@ -8,7 +8,7 @@ def main(args):
     data_file_path = os.path.join(args.data_root, args.data_file)
     hf = h5py.File(data_file_path, 'r')
     X, y = hf['X'][:], hf['y'][:]
-    split_point = int(0.8 * len(y))
+    split_point = int(0.05 * len(y))
     X_train, X_test = X[:split_point], X[split_point:]
     y_train, y_test = y[:split_point], y[split_point:]
 
@@ -20,7 +20,7 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_root', type=str, default='/home/adnan/Datasets/')
-    parser.add_argument('--data_file', type=str, default='neighbor_rank_histogram_dataset_oversampled_window_5.h5')
+    parser.add_argument('--data_file', type=str, default='neighbor_rank_histogram_dataset_oversampled_window_3.h5')
     parser_args = parser.parse_args()
 
     main(parser_args)
