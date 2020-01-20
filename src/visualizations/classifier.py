@@ -14,7 +14,7 @@ def main(args):
     data_file_path = os.path.join(args.data_root, args.data_file)
     hf = h5py.File(data_file_path, 'r')
     X, y = hf['X'][:], hf['y'][:]
-    split_point = int(0.8 * len(y))
+    split_point = int(0.05 * len(y))
     X_train, X_test = X[:split_point], X[split_point:]
     y_train, y_test = y[:split_point], y[split_point:]
 
@@ -28,11 +28,11 @@ def main(args):
 
     # dump(clf, '/home/adnan/PycharmProjects/BUET-CSE-6411-project/data/models/random_forest_classifier_{}.joblib'.format(test_acc))
     #
-    # for count, estimator_ in enumerate(clf.estimators_):
-    #     dot_data = tree.export_graphviz(estimator_, out_file=None)
-    #     graph = graphviz.Source(dot_data)
-    #     graph.render('estimator_{}'.format(count))
-    #     print(count)
+    for count, estimator_ in enumerate(clf.estimators_):
+        dot_data = tree.export_graphviz(estimator_, out_file=None)
+        graph = graphviz.Source(dot_data)
+        graph.render('estimator_{}'.format(count))
+        print(count)
 
 
 if __name__ == '__main__':
