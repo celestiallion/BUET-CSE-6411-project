@@ -157,7 +157,11 @@ Class & Number of samples & Sample count unseen during training\\ \hline
 \label{tab:classseenunseen}
 \end{center}
 \end{table}
-Usually train split is larger than the test one. However, in our case the aim of using this unusual scheme of splitting the train and test samples is to prove the robustness of the classifier, especially that of the embedding routine.
+Usually train split is larger than the test one. However, in our case the aim of using this unusual scheme of splitting the train and test samples is to prove the robustness of the classifier, especially that of the embedding routine.\\
+\par
+In the newly grown Random Forest, the root of the estimators are $462$, $1820$, $2227$, $3012$, and $926$ corresponding to the codon pairs (ACT, ATG), (CTA, CTA), (GAG, TAT), (GTT, ACA), (CTG, ATG) and clearly evidences that the most important codons consists mostly of Adenine and Thymine.\\
+\par 
+Surprisingly, with a decision tree classifier the accuracy is $74.1$\%. Also, a decision tree is more determinisitic unlike Random Forest classifier that works with random splits of the training data for each of the estimators hindering proper interpretation. We are attaching the decision tree to the report as well.
 \section{Conclusion}
 The embedding suitable for this dataset eases up the classification task. However, the random nature of the classification algorithm used prevents us from having an exact picture of what is happening in the classifier. This in turn blurs our view into how the genus are distinct from each other. Despite these, we can do further analysis tasks in the important subregions of the embedded space. One such area of interest is the regin spanning from index position $3802$ to $3899$, especially $3827$- which is the root of two among five decision trees in the random forest. Future direction of this work includes applying this technique to other DNA sequence classification datasets and extending the embedding routine to include methods from other popular NLP embedding algorithms to see why they excel or fail. More importantly to design an embedding routine that makes the classification possible using one single decision tree.
 %\includepdf{../src/visualizations/estimator_0-rotated.pdf}
