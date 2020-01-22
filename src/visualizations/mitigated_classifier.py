@@ -36,25 +36,26 @@ def main(args):
             y_test_mitigated.append(y)
     X_test_mitigated, y_test_mitigated = np.array(X_test_mitigated), np.array(y_test_mitigated)
 
-    # clf = ensemble.RandomForestClassifier(n_estimators=5)
-    # clf.fit(X_train, y_train)
-    # print(clf.score(X_test_mitigated, y_test_mitigated))
+    clf = ensemble.RandomForestClassifier(n_estimators=20)
+    clf.fit(X_train, y_train)
+    accuracy = clf.score(X_test_mitigated, y_test_mitigated)
+    print(accuracy)
+
+    dump(clf, '/home/adnan/PycharmProjects/BUET-CSE-6411-project/data/models/random_forest_classifier_{}.joblib'.format(accuracy * 100))
     #
-    # # dump(clf, '/home/adnan/PycharmProjects/BUET-CSE-6411-project/data/models/random_forest_classifier_{}.joblib'.format(test_acc))
-    # #
     # for count, estimator_ in enumerate(clf.estimators_):
     #     dot_data = tree.export_graphviz(estimator_, out_file=None)
     #     graph = graphviz.Source(dot_data)
-    #     graph.render('estimator_{}'.format(count))
+    #     graph.render('estimator_new_{}'.format(count))
     #     print(count)
 
-    clf = tree.DecisionTreeClassifier()
-    clf.fit(X_train, y_train)
-    print(clf.score(X_test_mitigated, y_test_mitigated))
-
-    dot_data = tree.export_graphviz(clf, out_file=None)
-    graph = graphviz.Source(dot_data)
-    graph.render('Decision_tree')
+    # clf = tree.DecisionTreeClassifier()
+    # clf.fit(X_train, y_train)
+    # print(clf.score(X_test_mitigated, y_test_mitigated))
+    #
+    # dot_data = tree.export_graphviz(clf, out_file=None)
+    # graph = graphviz.Source(dot_data)
+    # graph.render('Decision_tree')
 
 
 if __name__ == '__main__':
