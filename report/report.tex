@@ -119,7 +119,7 @@ Affinity Propagation is an iterative algorithm. The algorithm proceeds by altern
 \par 
 We used Affinity Propagation to cluster and obtained a V-measure score of $0.5636$. V-measure score depends on homogeneity and completeness score of the clustering. If each cluster has data-points belonging to the same class label then the clusters are perfectly homogeneous cluster. Homogeneity exdpresses the closeness of the clustering algorithm being perfect. If all data-points belonging to the same class are clustered into the same cluster then it is a perfectly complete clustering. V-measure is the harmonic mean of these two scores.
 \subsection{Sequence Classification}
-For the purpose of sequence classification we used a Random Forest classifier to obtain a test accuracy of $99.8$\%. Our train-test split was $4:1$. However, with a train-test split of $3:2$, $2:3$, $1:4$, $1:9$, and $1:19$ the test accuracy was $99.3$\%, $98.8$\%, $96.9$\%, $93$\%, and $87.9$\% respectively. This evidences that in the embedding space embedded DNA sequences from each of the genus are well separated. This is also evidenced in the visualizations above. Random Forest classifier makes use of decision trees. Random Forest is a popular algorithm in data mining. Random Forest is invariant to different feature transformations. Therefore, it is well suited for the feature spaces which underwent many transformations.\\
+For the purpose of sequence classification we used a Random Forest classifier to obtain a test accuracy of $99.8$\%. Our train-test split was $4:1$. However, with a train-test split of $3:2$, $2:3$, $1:4$, $1:9$, $1:19$, and $1:99$ the test accuracy was $99.3$\%, $98.8$\%, $96.9$\%, $93$\%, $87.9$\% and $74.6$\% respectively. This evidences that in the embedding space embedded DNA sequences from each of the genus are well separated. This is also evidenced in the visualizations above. Random Forest classifier makes use of decision trees. Random Forest is a popular algorithm in data mining. Random Forest is invariant to different feature transformations. Therefore, it is well suited for the feature spaces which underwent many transformations.\\
 \par
 During the training time the algorithm builds a predefined number of decision trees. When an input is provided to the Random Forest algorithm, each of the decision trees constructed in it during the training independently outputs results on that input. Finally, the consensus of those results are taken. This consensus is the output of the Random Forest classifier.\\
 \par 
@@ -129,11 +129,35 @@ We used $5$ decision trees in our Random Forest classifier. Our splitting cirite
 \section{Interpretation} 
 We plot the decision trees used in the Random Forest classifier to have an interpretation of the model we are using. However, we do not know where and how the training dataset were splitted and hence could not be studied properly. We are attaching the decision tree plots as an appendix to this report.\\
 \par 
-Despite the random position of the dataset splitting, we note from the decision trees that, most of the trees have their root the $3800$s index of the embedded vectors. Therefore, we can consider that there must be some important splitting criterion lies around those positions.\\
+Visualizing the estimators in a Random Forest can give us a rough idea of the most important codon pairs in order to classify the DNA sequences into genus. Despite the random position of the dataset splitting, we note from the decision trees that, most of the trees have their root the $3800$s index of the embedded vectors. Therefore, we can consider that there must be some important splitting criterion lies around those positions.\\
 \par 
 We first recall that the gini impurity measures the frequency of a randomly chosen element from the set beingincorrectly labeled if it was randomly labeled according to the distribution of labels in the subset. Gini impurity of a decision tree is the maximum at the root of it. We used $5$ estimators for fitting the data into a Random Forest. The roots of the estimators (decision trees in the random forest) are $2172$, $3802$, $3827$, $3827$, and $3899$. That is the splitting criteria of the trees are based on the probability of the codon pairs: (GAC, TTA), (TGT, CGG), (TGT, TAT), (TGT, TAT), (TTA, TGT) respectively being in the same neighborhood. We recall that, in our case, neighborhood of a codon consists of $3$ codons on the left and $3$ codons on the right along the sequence.\\
 \par 
-If we train and test our classifier on $3:2$ train-test split, we have the roots of the estimators of the Random Forest be $3873$, $3707$, $2977$, $2789$, and $3827$ corresponding to the codon pairs (GAC, TTA), (TGC, TGT), (GGT, GCC), (GTG, GAC), and (TGT, TAT). Again, if we do the same on $2:3$ train-test split, we have the roots at $2294$, $3813$, $4017$, $3741$, and $3840$ corresponding to the codon pairs (TCG, GAT), (TGT, GCC), (TTG, TAC), (TGG, CTC), (TTA, AAA). We can repeat this procedure for other train-test splits as well. We notice at this point that the codons with Thymine at the prefix plays a major role in the classification. Now with the train-test split of $1:19$ the root of the estimators are $1839$, $1962$, $2809$, $3802$, and $1962$ corresponding to the codon pairs (GTT, CTA), (GGG, CTG), (TGC, GGT), (TGT, CGG), and (GGG, CTG). We note that, with reduced amount of training data, we have split criteria dominated by codons with Guanine at the suffix.
+If we train and test our classifier on $3:2$ train-test split, we have the roots of the estimators of the Random Forest be $3873$, $3707$, $2977$, $2789$, and $3827$ corresponding to the codon pairs (GAC, TTA), (TGC, TGT), (GGT, GCC), (GTG, GAC), and (TGT, TAT). Again, if we do the same on $2:3$ train-test split, we have the roots at $2294$, $3813$, $4017$, $3741$, and $3840$ corresponding to the codon pairs (TCG, GAT), (TGT, GCC), (TTG, TAC), (TGG, CTC), (TTA, AAA). We can repeat this procedure for other train-test splits as well. We notice at this point that the codons with Thymine at the prefix plays a major role in the classification. Now with the train-test split of $1:19$ the root of the estimators are $1839$, $1962$, $2809$, $3802$, and $1962$ corresponding to the codon pairs (GTT, CTA), (GGG, CTG), (TGC, GGT), (TGT, CGG), and (GGG, CTG). With a train-test split of $1:99$, the root of the estimators are at the embedding feature attribute indices $3856$, $1690$, $312$, $8$, and $2188$ corresponding to the codon pairs (CAA, TTA), (CGG, CGG), (TGA, ACA), (AAA, AGA), (ATA, GAG). We note that, with reduced amount of training data, we have split criteria dominated by a specific nucleobases in the prefix position in the codons.\\
+\par
+In the light of a recent research by Vandewiele et al. \cite{23}, we should go with the results obtained with $1:99$ split due to issues mentioned by the authors. This is because we also oversampled before splitting into train and test sets. With $1:99$ train-test split, we have to discard only two classes while computing the accuracy. We note in the table \autoref{tab:classdescription} that we have the third smallest class of samples to be genus $4$. We oversampled this class to have $1269$ samples and if we take $\frac{1}{100}^{th}$ of it we take only $13$ samples at the training time and therefore, by the Pigeon hole principle, the classifier is not seeing $56$ samples of genus $4$ at the training time.\\
+\par 
+Similarly, with a train-test split of $1:33$ we can construct the following table \autoref{tab:classseenunseen} of number of entirely unseen samples during the training. The classifier gained an accuracy of $77.3$\% with the classes (genus) $5$ and $7$ discarded during the test time because with this split the Random Forest classifier has seen all the examples from this two classes. We also discarded the seen samples from the test dataset.
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Class & Number of samples & Sample count unseen during training\\ \hline
+1 & $607$ & $569$\\ \hline
+2 & $852$ & $814$\\ \hline
+3 & $1269$ & $1231$\\ \hline
+4 & $66$ & $28$\\ \hline
+5 & $4$ & $0$\\ \hline
+6 & $510$ & $472$\\ \hline
+7 & $4$ & $0$\\ \hline
+8 & $138$ & $100$\\ \hline
+9 & $356$ & $318$\\ \hline
+\end{tabular}
+\caption{Train-test split count description of the dataset with train-test split of $1:33$.}
+\label{tab:classseenunseen}
+\end{center}
+\end{table}
+Usually train split is larger than the test one. However, in our case the aim of using this unusual scheme of splitting the train and test samples is to prove the robustness of the classifier, especially that of the embedding routine.
 \section{Conclusion}
 The embedding suitable for this dataset eases up the classification task. However, the random nature of the classification algorithm used prevents us from having an exact picture of what is happening in the classifier. This in turn blurs our view into how the genus are distinct from each other. Despite these, we can do further analysis tasks in the important subregions of the embedded space. One such area of interest is the regin spanning from index position $3802$ to $3899$, especially $3827$- which is the root of two among five decision trees in the random forest. Future direction of this work includes applying this technique to other DNA sequence classification datasets and extending the embedding routine to include methods from other popular NLP embedding algorithms to see why they excel or fail. More importantly to design an embedding routine that makes the classification possible using one single decision tree.
 %\includepdf{../src/visualizations/estimator_0-rotated.pdf}
@@ -160,5 +184,6 @@ The embedding suitable for this dataset eases up the classification task. Howeve
 \bibitem{20} Bojanowski, P., Grave, E., Joulin, A.,  Mikolov, T. (2017). \textit{Enriching Word Vectors with Subword Information}. Transactions of the Association for Computational Linguistics.
 \bibitem{21} Microsoft Malware Classification Challenge (BIG 2015), \url{https://www.kaggle.com/c/malware-classification/}
 \bibitem{22} Brendan J. Frey, Delbert Dueck. \textit{Clustering by passing messages between data points}. Science. 315 (5814): 972–976.
+\bibitem{23} Vandewiele G., Dehaene I., Kovács G., Sterckx L., Janssens O., Ongenae F., Backere F., Turck F., Roelens K., Decruyenaere K., Hoecke S., Demeester T. \textit{Overly Optimistic Prediction Results on Imbalanced Data: Flaws and Benefits of Applying Over-sampling}. \url{https://arxiv.org/abs/2001.06296}
 \end{thebibliography}
 \end{document}

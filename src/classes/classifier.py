@@ -8,7 +8,7 @@ def main(args):
     data_file_path = os.path.join(args.data_root, args.data_file)
     hf = h5py.File(data_file_path, 'r')
     X, y = hf['X'][:], hf['y'][:]
-    split_point = int(0.05 * len(y))
+    split_point = int(0.005 * len(y))
     X_train, X_test = X[:split_point], X[split_point:]
     y_train, y_test = y[:split_point], y[split_point:]
 
